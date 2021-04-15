@@ -1,0 +1,27 @@
+#:import Factory kivy.factory.Factory
+
+<Landing>:
+   BoxLayout:
+      Label:
+         text: 'Landing'
+      Button: 
+         text: 'Abrir PopUp'
+         on_press: Factory.MyPopup().open()
+
+<MyPopup>:
+   id: mypopup
+   title: 'Salveeee'
+   size_hint: (None, None)
+   size: (400, 400)
+   BoxLayout:
+      orientation: 'vertical'
+      Label:
+         text: 'Olá, eu sou um popup bem legal'
+      BoxLayout:
+         Button:
+            text: 'Fechar modal'
+            on_press: root.dismiss()
+         Button:
+            text: 'Navegar para Home'
+            on_press: app.root.navigate()
+            on_release: root.dismiss()
